@@ -85,7 +85,8 @@ int Stack::isBalanced(const char *expression)
       /*if closing bracket encounters.
       follow these two steps:-
       step 1 : check if stack is empty.if it is empty return 0 else pop.
-      // step 2: after traversing the entire expression if stack is empty return true else return false i.e. 0. 
+      step 2 : take ascii values if in case input - '[' and stack is '}',the ascii value checks.if y - x or x - y > 2 then return 0.
+       After traversing the entire expression if stack is empty return true else return false i.e. 0. 
        */
         else if(expression[i]==']'||expression[i]=='}'||expression[i]==')')
         {
@@ -94,7 +95,12 @@ int Stack::isBalanced(const char *expression)
             }
             else
             {
-                pop();
+                int x = expression[i];
+                int y=pop();
+                if(y - x > 2 || x - y > 2){
+                    return 0;
+                }
+                
             }
         }
     }

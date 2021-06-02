@@ -103,6 +103,27 @@ void preorder(struct Node *p)
         preorder(p->right);
     }
 }
+//same but using iteration ,helps reduce cost due to recursion.
+void iterativepreorder(struct Node *t)
+{
+    struct Stack st;
+    screate(&st);
+    while(t!=NULL || !isEmpty(st))
+    {
+        if(t!=NULL)
+        {
+        printf("%d ",t->data);
+        push(&st,t);
+        t=t->lchild;
+        }
+        else
+        {
+            t=pop(&st);
+            t=t->rchild;
+        }
+    }
+    
+}
 int main()
 {
     Tcreate();

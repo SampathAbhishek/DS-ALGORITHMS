@@ -6,7 +6,7 @@ int main()
     int x=117,pos=0,i;
     int a[6]={10,20,30,40,50};
     i=4;
-    while(a[i]>x)
+    while(i>-1 && a[i]>x)
     {
         a[i+1]=a[i];
         i--;

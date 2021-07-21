@@ -34,7 +34,7 @@ void BubbleSort(int a[],int n)
                 swap(&a[j],&a[j+1]);
             }
         }
-        if(flag=0)
+        if(flag==0)
         {
             break;
         }

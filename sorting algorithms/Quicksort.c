@@ -2,6 +2,8 @@
 So,we divide the list in such a way that,all the elements to the left of the pivot are smaller 
 than pivot and right are greater.
 We follow this procedure recursively until low<height of series.
+if series is in ascending or descending order ==> worst case complexity leading to O(n^2).
+average case :- O(nLogn).
 */
 #include <stdio.h>
 #include<stdint.h>

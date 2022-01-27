@@ -17,7 +17,7 @@ class linked_list:
     def append(self,prev_node,data):
         if prev_node is None:
             print('The previous node is not present in Linked List')
-        
+          
         new_node = Node(data)
         new_node.next = prev_node.next
         prev_node.next=new_node
@@ -27,6 +27,7 @@ class linked_list:
         new_node = Node(data)
         if self.head is None:
             self.head = new_node  
+            return
         last = self.head 
         while last.next:
             last = last.next   

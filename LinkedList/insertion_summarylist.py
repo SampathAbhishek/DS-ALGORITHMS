@@ -1,47 +1,87 @@
-#Insertion of nodes at various positions in a singly linked list
+#Singly Linked List
 class Node:
     def __init__(self,data):
         self.data=data
         self.next=None
-class linked_list:
+class Linked_List:
     def __init__(self):
         self.head=None
     
-    #Insertion of a node at the beginning
+    #Insertion at beginning
     def push(self,data):
         new_node = Node(data)
         new_node.next=self.head
         self.head=new_node
-    
-    #Insertion of a node after a given previous node
-    def append(self,prev_node,data):
-        if prev_node is None:
-            print('The previous node is not present in Linked List')
-          
-        new_node = Node(data)
-        new_node.next = prev_node.next
-        prev_node.next=new_node
         
-    #Insertion of a node at the end    
-    def last(self,data):
+    #Insertion Before a given position    
+    def insert_after(self,prev,data):
+        if prev is None:
+            print('prev not found in Linked List')
+            
+        new_node = Node(data)
+        new_node.next=prev.next
+        prev.next=new_node
+    
+    #Reversing a linked list
+    def reverse_list(self):
+        prev = None
+        next = None
+        cur = self.head
+        while cur is not None:
+            next=cur.next
+            cur.next=prev
+            prev=cur
+            cur=next
+        
+        self.head=prev
+       
+   #deleting a linked list given the value i.e. self.data
+    def delete_node(self,data):
+        temp = self.head
+        if temp is not None:
+            if temp.data == data:
+                self.head= temp.next
+                temp=None
+                return
+        while(temp):
+            if temp.data == data:
+                break
+            else:
+                prev = temp
+                temp=temp.next
+        
+        if(temp==None):
+            return
+        prev.next = temp.next
+        temp=None
+             
+               
+    #Insertion at end
+    def append(self,data):
         new_node = Node(data)
         if self.head is None:
-            self.head = new_node  
+            self.head=new_node
             return
-        last = self.head 
-        while last.next:
-            last = last.next   
-        last.next = new_node
-    
-
+        cur = self.head
+        while(cur.next):
+            cur=cur.next
+        cur.next=new_node
+        
+    #print a linked list
     def print_list(self):
-        current = self.head
-        while current is not None:
-            print(str(current.data)+"->",end='')
-            current=current.next
-llist = linked_list()
-llist.push(10)
-llist.push(40)
-llist.append(llist.head.next,30)
-llist.last(50)
+        cur = self.head
+        while(cur):
+            print(str(cur.data)+"->",end='')
+            cur=cur.next
+llist = Linked_List()
+llist.append(10)
+llist.append(20)
+llist.push(5)
+llist.insert_after(llist.head.next,15)
+llist.print_list()
+llist.reverse_list()
+print()
+llist.print_list()
+llist.delete_node(20)
+print()
 llist.print_list()

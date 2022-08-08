@@ -105,4 +105,20 @@ if __name__ == '__main__':
     n = int(input())
     print(gcd(m,n))
 
+    
+#Euclid's algorithm  (Recursion)
+def gcd(m,n):
+     if m<n:      #assume m>=n
+        (m,n)=(n,m)
+     if m%n == 0:
+         return(n)         
+     else:
+        diff = m-n
+        return(gcd(max(n,diff),min(n,diff)))
+ 
+if __name__ == '__main__':
+    m = int(input())
+    n = int(input())
+    print(gcd(m,n))
+    
 

@@ -61,5 +61,48 @@ if __name__ == '__main__':
     n = int(input())
     print(gcd(m,n))
     
-    
+#Method 3
+
+# (Reducinf the use of lists and run the scan from 1 to min(m,n) because m+1 will never be a factor of m so why use max instaed we go with min)
+def gcd(m,n):
+    cf = []
+    for i in range(1,min(m,n)+1):
+        if m % i == 0 and n %i == 0:
+           cf.append(i)
+    return(cf[-1])
+  
+if __name__ == '__main__':
+    m = int(input())
+    n = int(input())
+    print(gcd(m,n))
+
+
+# Method 4
+#  Instead of remembering each of the factors just get the max.
+  def gcd(m,n):
+    for i in range(1,min(m,n)+1):
+        if m % i == 0 and n %i == 0:
+           cfgr=i
+    return(cfgr)
+  
+if __name__ == '__main__':
+    m = int(input())
+    n = int(input())
+    print(gcd(m,n))
+
+#Method 5
+# If we want to find gcd why to scan from beginning to end.Let's scan from backwards
+
+def gcd(m,n):
+    i = min(m,n)
+    while i > 0:
+        if m % i == 0 and n % i == 0:
+            return(i)
+        else:
+            i=i-1
+if __name__ == '__main__':
+    m = int(input())
+    n = int(input())
+    print(gcd(m,n))
+
 

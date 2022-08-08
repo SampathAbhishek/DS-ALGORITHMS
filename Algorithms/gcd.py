@@ -128,8 +128,28 @@ def gcd(m,n):
     
     while (m%n)!=0:
         diff = m - n
-        (m,n)=gcd(max(n,diff),min(n,diff))
+        (m,n)=(max(n,diff),min(n,diff))
         
     print(n)
         
 gcd(12,1)
+
+
+#Actual Euclids Algorithm(Recursion)
+def gcd(m,n):
+    if m<n:
+        (m,n)=(n,m)
+    if m%n == 0:
+        return n
+    else:
+        return gcd(n,(m%n))        
+print( gcd(101,2) )
+
+#Actual Euclids Algorithm(Iteration)
+def gcd(m,n):
+    if m<n:
+        (m,n)=(n,m)
+    while m%n !=0:
+        (m,n) = (n,m%n) 
+    return(n)      
+print( gcd(101,2) )

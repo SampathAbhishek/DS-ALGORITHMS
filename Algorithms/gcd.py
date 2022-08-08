@@ -121,4 +121,15 @@ if __name__ == '__main__':
     n = int(input())
     print(gcd(m,n))
     
-
+#Euclids algorithm using iteration    
+def gcd(m,n):
+    if m<n:
+        (m,n)=(n,m)
+    
+    while (m%n)!=0:
+        diff = m - n
+        (m,n)=gcd(max(n,diff),min(n,diff))
+        
+    print(n)
+        
+gcd(12,1)
